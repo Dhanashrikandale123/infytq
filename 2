@@ -1,0 +1,52 @@
+Write a python program to find and display the product of three positive integer values based on the rule mentioned below:
+
+It should display the product of the three values except when one of the integer value is 7. In that case, 7 should not be included in the product and the values to its left also should not be included.
+If there is only one value to be considered, display that value itself. If no values can be included in the product, display -1.
+
+Note: Assume that if 7 is one of the positive integer values, then it will occur only once. Refer the sample I/O given below.
+
+Sample Input
+
+Expected Output
+
+1, 5, 3
+
+15
+
+3, 7, 8
+
+8
+
+7, 4, 3
+
+12
+
+1, 5, 7
+
+-1
+def find_product(num1,num2,num3):
+    
+    #write your logic here
+    a=list([num1,num2,num3])
+    print(a)
+    if a[len(a)-1]==7:
+        return -1
+    elif a[1]==7:
+        return a[2]
+    else:
+      for i in range(0,len(a)-1):
+        if(a[i]==7):
+            a.remove(7)
+            print(a)
+        product=1
+        for x in a:
+         product = product * x
+      return product
+    
+
+    
+        
+
+#Provide different values for num1, num2, num3 and test your program
+product=find_product(2,3,4)
+print(product)
